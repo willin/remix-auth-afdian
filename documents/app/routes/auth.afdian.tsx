@@ -6,14 +6,9 @@ export async function loader() {
 }
 
 export async function action(args: ActionFunctionArgs) {
-  try {
-    const authenticator = getAuthenticator(args);
-    return await authenticator.authenticate("afdian", request, {
-      successRedirect: "/dashboard",
-      throwOnError: true,
-    });
-  } catch (error) {
-    console.trace(error);
-  }
-  return redirect("/");
+  const authenticator = getAuthenticator(args);
+  return await authenticator.authenticate("afdian", args.request, {
+    successRedirect: "/dashboard",
+  });
+
 }

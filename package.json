@@ -1,6 +1,6 @@
 {
   "name": "remix-auth-afdian",
-  "version": "0.0.0-alpha.2",
+  "version": "0.0.1",
   "description": "爱发电 for Remix Auth",
   "main": ",/build/index.js",
   "module": "./build/index.js",

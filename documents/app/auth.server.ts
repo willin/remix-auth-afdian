@@ -10,13 +10,12 @@ export function getAuthenticator({ context, request }: ActionFunctionArgs) {
     cookie: {
       name: 'sid',
       httpOnly: true,
-      secure: context.CF_PAGES === 'production',
+      secure: context.env.CF_PAGES === 'production',
       sameSite: 'lax',
       path: '/',
       secrets: ['s3cr3t']
     }
   });
-
 
   const authenticator = new Authenticator(
     sessionStorage,
@@ -27,8 +26,8 @@ export function getAuthenticator({ context, request }: ActionFunctionArgs) {
 
   const afdianStrategy = new AfdianStrategy(
     {
-      clientID: context.AFDIAN_CLIENT_ID,
-      clientSecret: context.AFDIAN_CLIENT_SECRET,
+      clientID: context.env.AFDIAN_CLIENT_ID,
+      clientSecret: context.env.AFDIAN_CLIENT_SECRET,
       callbackURL: url.toString(),
     },
     async ({ accessToken, extraParams, profile }) => {
