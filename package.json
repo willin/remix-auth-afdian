@@ -1,8 +1,9 @@
 {
   "name": "remix-auth-afdian",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha.2",
   "description": "爱发电 for Remix Auth",
   "main": ",/build/index.js",
+  "module": "./build/index.js",
   "types": ",/build/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
@@ -36,7 +37,6 @@
     "README.md"
   ],
   "peerDependencies": {
-    "@remix-run/server-runtime": "^2.0.0",
     "remix-auth": "^3.4.0"
   },
   "devDependencies": {
@@ -47,6 +47,7 @@
     "@jest/types": "^29.6.3",
     "@remix-run/node": "^2.0.1",
     "@remix-run/react": "^2.0.1",
+    "@remix-run/server-runtime": "^2.0.0",
     "@types/jest": "^29.5.5",
     "@types/node": "^20.8.0",
     "@typescript-eslint/eslint-plugin": "^6.7.3",

@@ -1,0 +1,9 @@
+node_modules
+
+*.log
+.DS_Store
+
+demo/
+/.cache
+/.mf
+/documents
