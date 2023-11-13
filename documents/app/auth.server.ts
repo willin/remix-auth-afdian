@@ -1,7 +1,6 @@
-import { createCookieSessionStorage, type ActionFunctionArgs } from "@remix-run/cloudflare";
+import { createCookieSessionStorage, type ActionFunctionArgs } from '@remix-run/cloudflare';
 import { Authenticator } from 'remix-auth';
-import { AfdianStrategy } from "remix-auth-afdian/build/index";
-
+import { AfdianStrategy } from 'remix-auth-afdian/build/index';
 
 export function getAuthenticator({ context, request }: ActionFunctionArgs) {
   const url = new URL(request.url);
@@ -17,21 +16,17 @@ export function getAuthenticator({ context, request }: ActionFunctionArgs) {
     }
   });
 
-  const authenticator = new Authenticator(
-    sessionStorage,
-    {
-      throwOnError: true
-    }
-  );
+  const authenticator = new Authenticator(sessionStorage, {
+    throwOnError: true
+  });
 
   const afdianStrategy = new AfdianStrategy(
     {
       clientID: context.env.AFDIAN_CLIENT_ID,
       clientSecret: context.env.AFDIAN_CLIENT_SECRET,
-      callbackURL: url.toString(),
+      callbackURL: url.toString()
     },
     async ({ accessToken, extraParams, profile }) => {
-      console.log(profile);
       return profile;
     }
   );
