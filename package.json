@@ -1,10 +1,10 @@
 {
   "name": "remix-auth-afdian",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "爱发电 for Remix Auth",
-  "main": ",/build/index.js",
+  "main": "./build/index.js",
   "module": "./build/index.js",
-  "types": ",/build/index.d.ts",
+  "types": "./build/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
     "build": "tsc --project tsconfig.json",
